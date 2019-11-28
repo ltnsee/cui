@@ -8,17 +8,6 @@ function resolve(dir) {
 
 // vue.config.js
 module.exports = {
-  // Vue-cli3:
-  // Crashed when using Webpack `import()` #2463
-  // https://github.com/vuejs/vue-cli/issues/2463
-
-  // pages: {
-  //   index: {
-  //     entry: 'src/main.js',
-  //     chunks: ['chunk-vendors', 'chunk-common', 'index']
-  //   }
-  // },
-
   transpileDependencies: ['vue-echarts', 'resize-detector', 'vuetify'],
   configureWebpack: {
     plugins: [
@@ -43,22 +32,17 @@ module.exports = {
   devServer: {
     proxy: {
       '/web': {
-        target: 'http://192.168.1.6:8080',
-        // target: 'https://appint.mspbots.ai',
+        // target: 'http://192.168.1.6:8080',
+        target: 'https://appint.mspbots.ai',
         ws: false,
         changeOrigin: true,
         logLevel: 'debug',
         pathRewrite: {
-          '^/web': 'http://192.168.1.6:8080'
-          // '^/web': 'https://appint.mspbots.ai/web'
+          // '^/web': 'http://192.168.1.6:8080'
+          '^/web': 'https://appint.mspbots.ai/web'
         }
       }
     }
-    // port: 9099
-    // int https://appint.mspbots.ai/web
-    // Zhou 192.168.1.13:8082
-    // Xing 192.168.1.2:8080
-    // hzf 192.168.1.23:8086
   },
 
   assetsDir: 'static',
