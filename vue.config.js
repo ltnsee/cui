@@ -7,7 +7,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  transpileDependencies: ['vue-echarts', 'resize-detector', 'vuetify'],
+  transpileDependencies: ['vuetify'],
   configureWebpack: {
     plugins: [
       // Ignore all locale files of moment.js
@@ -21,9 +21,8 @@ module.exports = {
 
   css: {
     loaderOptions: {
-      less: {
-        modifyVars: {},
-        javascriptEnabled: true
+      sass: {
+        prependData: '@import "~@/assets/style/desktop.scss";'
       }
     }
   },

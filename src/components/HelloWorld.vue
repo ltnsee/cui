@@ -63,6 +63,7 @@ ul {
   padding: 0;
 }
 li {
+  color: $primary-color;
   display: inline-block;
   margin: 0 10px;
 }
