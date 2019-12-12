@@ -11,8 +11,7 @@ NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false });
 
 const router = new VueRouter({
   mode: 'history',
-  linkActiveClass: 'active',
-  // base: process.env.BASE_URL,
+  base: process.env.BASE_URL,
   routes
 });
 

@@ -39,16 +39,14 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import * as api from '@/utils/api';
 
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
   handelClickBtn() {
-    fetch('/tenant/users?current=1&size=10&tenantId=515').then(function(response) {
-      alert('Click me! response');
-      return response.json();
-    });
+    api.getUsers();
   }
 }
 </script>

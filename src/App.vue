@@ -9,6 +9,18 @@
   </div>
 </template>
 
+<script lang="ts">
+import router from './router';
+import eventHelper from '@/utils/event';
+
+eventHelper.subscribe(eventHelper.event.AuthFail, () => {
+  router.push('/login');
+});
+export default {
+  name: 'app'
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
