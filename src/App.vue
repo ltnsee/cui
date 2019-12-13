@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import router from './router';
-import eventHelper from '@/utils/event';
+import eventHelper from '@/utils/event.helper';
 
 eventHelper.subscribe(eventHelper.event.AuthFail, () => {
   router.push('/login');

@@ -1,11 +1,17 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
-import user from './modules/user';
+import Vuex, { Store, StoreOptions, ModuleTree } from 'vuex';
+import user, { IUser } from './modules/user';
 
 Vue.use(Vuex);
+interface IState {
+  user: IUser;
+}
+interface IStore extends Store<IState> {}
 
-export default new Vuex.Store({
+const store: IStore = new Vuex.Store({
   modules: {
     user
   }
 });
+
+export default store;

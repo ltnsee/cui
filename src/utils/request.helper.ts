@@ -2,8 +2,8 @@ import Vue from 'vue';
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import VueAxios from 'vue-axios';
 import NProgress from 'nprogress';
-import messageHelper from './message';
-import eventHelper from './event';
+import messageHelper from './message.helper';
+import eventHelper from './event.helper';
 import store from '@/store';
 
 Vue.use(VueAxios, axios);

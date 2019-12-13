@@ -34,19 +34,36 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
     <button @click="handelClickBtn">Click me!</button>
+    <v-btn @click="handelClickLogin">登录</v-btn>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import * as api from '@/utils/api';
+import api from '@/utils/api';
 
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
   handelClickBtn() {
-    api.getUsers();
+    api.getUsers().then((res) => {
+      console.log('users', JSON.stringify(res));
+      return res;
+    });
+  }
+
+  handelClickLogin() {
+    const params = {
+      username: 'xiaowu',
+      password: '123456'
+    };
+    console.log('api', api);
+    api.login(params).then((res) => {
+      console.log('users', JSON.stringify(res));
+      this.$store.dispatch('setToken', res.token);
+      return res;
+    });
   }
 }
 </script>

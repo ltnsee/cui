@@ -3,8 +3,7 @@ import vuetify from './utils/vuetify';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-
-import './utils/interceptor';
+import './utils/request.helper';
 
 Vue.config.productionTip = false;
 

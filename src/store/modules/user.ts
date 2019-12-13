@@ -1,7 +1,13 @@
 import store from '@/store';
-import { Store } from 'vuex';
+import { StoreOptions } from 'vuex';
 
-const user: any = {
+interface IState {
+  token: string | null;
+}
+
+export interface IUser extends StoreOptions<IState> {}
+
+const user: IUser = {
   state: {
     token: null
   },
