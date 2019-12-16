@@ -40,13 +40,16 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import api from '@/utils/api';
+import api, { Api } from '@/utils/api';
 
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
 
   handelClickBtn() {
+    const params = {
+      id: '123456'
+    };
     api.getUsers().then((res) => {
       console.log('users', JSON.stringify(res));
       return res;
@@ -58,7 +61,6 @@ export default class HelloWorld extends Vue {
       username: 'xiaowu',
       password: '123456'
     };
-    console.log('api', api);
     api.login(params).then((res) => {
       console.log('users', JSON.stringify(res));
       this.$store.dispatch('setToken', res.token);

@@ -3,7 +3,7 @@
   "useTaobaoRegistry": false,
   "packageManager": "yarn",
   "presets": {
-    "cui": {
+    "cui-front": {
       "useConfigFiles": true,
       "plugins": {
         "@vue/cli-plugin-babel": {},

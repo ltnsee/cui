@@ -1,3 +1,4 @@
+import { Api } from './api';
 const storeMap = new Map();
 class StoreService {
   get<T>(key: string): T {
@@ -36,7 +37,7 @@ export function storeRequest(target: Object, propertyKey: string, descriptor: Ty
       return result;
     }
   };
-  // descriptor.value.storeName = propertyKey;
+  descriptor.value.storeName = propertyKey;
   return descriptor;
 }
 
@@ -44,13 +45,14 @@ export function clearRequest(clearKey: any) {
   return function(target: Object, propertyKey: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
     descriptor.value = function(...args: any[]) {
-      if (clearKey.storeName === undefined) {
+      const api: any = Api.prototype;
+      const storeName: string = api[clearKey.name].storeName;
+      if (storeName === undefined) {
         // throw '要清除的缓存方法尚未初始化';
       } else {
-        storeService.clearStore(clearKey.storeName);
+        storeService.clearStore(storeName);
       }
-      const result = originalMethod.apply(this, args);
-      return result;
+      return originalMethod.apply(this, args);
     };
     return descriptor;
   };
