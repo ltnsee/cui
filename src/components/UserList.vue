@@ -13,13 +13,14 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class UserList extends Vue {
-  @Prop() private usersList!: Array<any>;
+  @Prop(Array) private usersList!: Array<any>;
 
   created() {
     console.log('123', this.usersList);
   }
 
-  watch() {
+  @Watch('usersList')
+  watchUsersList() {
     console.log('456', this.usersList);
   }
 }
