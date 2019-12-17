@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import qs from 'qs';
-import { storeRequest, clearRequest } from './stop.service';
+import { storeRequest, clearRequest } from '@/utils/stop.service';
 
 // export const login = (params: any) => Vue.axios.post('/login', params);
 
@@ -10,8 +10,16 @@ import { storeRequest, clearRequest } from './stop.service';
 
 // export const addUser = (params: any) => Vue.axios.post('/users', params);
 
-export class Api {
-  @clearRequest(Api.prototype.getUsers)
+export interface IUser {
+  name: string;
+}
+
+export interface ILogin {
+  token: string;
+}
+
+export class UserApi {
+  @clearRequest(UserApi.prototype, 'getUsers')
   login(params: any) {
     return Vue.axios.post('/login', params);
   }
@@ -21,6 +29,6 @@ export class Api {
     return Vue.axios.get('/users');
   }
 }
-const api = new Api();
+const userApi = new UserApi();
 
-export default api;
+export default userApi;

@@ -1,14 +1,20 @@
 import Vue from 'vue';
-import Vuex, { Store, StoreOptions, ModuleTree } from 'vuex';
-import user, { IUser } from './modules/user';
+import Vuex, { Store } from 'vuex';
+import actions from './actions';
+import mutations from './mutations';
+import state from './state';
+import getters from './getters';
+import { IState } from './interface';
+// modules
+import user from './modules/user';
 
 Vue.use(Vuex);
-interface IState {
-  user: IUser;
-}
-interface IStore extends Store<IState> {}
 
-const store: IStore = new Vuex.Store({
+const store: Store<IState> = new Vuex.Store({
+  actions,
+  mutations,
+  getters,
+  state,
   modules: {
     user
   }

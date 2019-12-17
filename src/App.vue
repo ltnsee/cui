@@ -12,9 +12,11 @@
 <script lang="ts">
 import router from './router';
 import eventHelper from '@/utils/event.helper';
+import VueCookies from 'vue-cookies';
 
 eventHelper.subscribe(eventHelper.event.AuthFail, () => {
   router.push('/login');
+  VueCookies.remove('userinfo');
 });
 export default {
   name: 'app'

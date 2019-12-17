@@ -38,15 +38,13 @@ module.exports = {
   devServer: {
     proxy: 'http://localhost:3000'
     // proxy: {
-    //   '/web': {
-    //     // target: 'http://192.168.1.2:8080',
-    //     target: 'https://appint.mspbots.ai',
+    //   '/': {
+    //     target: 'http://localhost:3000',
     //     ws: false,
     //     changeOrigin: true,
     //     logLevel: 'debug',
     //     pathRewrite: {
-    //       // '^/web': 'http://192.168.1.2:8080'
-    //       '^/web': 'https://appint.mspbots.ai/web'
+    //       '^/': 'http://localhost:3000'
     //     }
     //   }
     // }

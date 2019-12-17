@@ -33,6 +33,8 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    123
+    <user-list :usersList="usersList" />
     <button @click="handelClickBtn">Click me!</button>
     <v-btn @click="handelClickLogin">登录</v-btn>
   </div>
@@ -40,18 +42,29 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import api, { Api } from '@/utils/api';
-
-@Component
+import UserList from './UserList.vue';
+import userApi from '@/api/user';
+@Component({
+  name: 'HelloWorld',
+  components: {
+    'user-list': UserList
+  }
+})
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
+  private usersList: any = null;
+
+  created() {
+    this.handelClickBtn();
+  }
 
   handelClickBtn() {
     const params = {
       id: '123456'
     };
-    api.getUsers().then((res) => {
+    userApi.getUsers().then((res) => {
       console.log('users', JSON.stringify(res));
+      this.usersList = res.data;
       return res;
     });
   }
@@ -61,7 +74,7 @@ export default class HelloWorld extends Vue {
       username: 'xiaowu',
       password: '123456'
     };
-    api.login(params).then((res) => {
+    userApi.login(params).then((res: any) => {
       console.log('users', JSON.stringify(res));
       this.$store.dispatch('setToken', res.token);
       return res;

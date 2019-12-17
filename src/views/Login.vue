@@ -7,7 +7,7 @@
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
-import api from '@/utils/api';
+import userApi from '@/api/user';
 
 @Component
 export default class Login extends Vue {
@@ -16,8 +16,7 @@ export default class Login extends Vue {
       username: 'xiaowu',
       password: '123456'
     };
-    console.log('api', api, api.login);
-    api.login(params).then((res) => {
+    userApi.login(params).then((res) => {
       console.log('users', JSON.stringify(res), this);
       this.$store.dispatch('setToken', res.token);
       return res;
