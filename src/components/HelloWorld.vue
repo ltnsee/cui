@@ -36,7 +36,7 @@
     123
     <user-list :usersList="usersList" />
     <button @click="handelClickBtn">Click me!</button>
-    <v-btn @click="handelClickLogin">登录</v-btn>
+    <v-btn color="blue" @click="handelClickLogin">登录</v-btn>
   </div>
 </template>
 

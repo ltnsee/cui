@@ -1,26 +1,33 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <nav-bar />
+    <v-app class="router-content">
+      <router-view />
+    </v-app>
   </div>
 </template>
 
 <script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import router from './router';
 import eventHelper from '@/utils/event.helper';
 import VueCookies from 'vue-cookies';
+import NavBar from '@/components/NavBar.vue';
 
-eventHelper.subscribe(eventHelper.event.AuthFail, () => {
-  router.push('/login');
-  VueCookies.remove('userinfo');
-});
-export default {
-  name: 'app'
-};
+@Component({
+  name: 'App',
+  components: {
+    'nav-bar': NavBar
+  }
+})
+export default class App extends Vue {
+  created() {
+    eventHelper.subscribe(eventHelper.event.AuthFail, () => {
+      router.push('/login');
+      VueCookies.remove('userinfo');
+    });
+  }
+}
 </script>
 
 <style lang="scss">
@@ -30,18 +37,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .router-content {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
   }
 }
 </style>
