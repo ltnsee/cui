@@ -16,6 +16,17 @@ export const publicRoute = [
     name: '登录',
     component: () => import('../views/Login.vue')
   },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../views/Test.vue'),
+    children: [
+      {
+        path: '/test/:testId',
+        component: () => import('../components/ChildrenRouter.vue')
+      }
+    ]
+  }
   // {
   //   path: '/register',
   //   name: '注册',

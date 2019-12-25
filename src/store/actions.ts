@@ -3,8 +3,11 @@ import { IState } from './interface';
 import { ActionTree } from 'vuex';
 
 const actions: ActionTree<IState, any> = {
-  SET_AUTHOR_ASYN({ commit, state: RootStateTypes }, data: string) {
-    commit('SET_AUTHOR', data);
+  SET_AUTHOR_ASYN({ commit }, author: string) {
+    commit('SET_AUTHOR', author);
+  },
+  SET_DIALOG_ASYN({ commit }, dialog: string) {
+    commit('SET_DIALOG', dialog);
   }
 };
 

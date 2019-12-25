@@ -11,5 +11,6 @@ export interface IMenu {
 export interface IState {
   author: string;
   menu: IMenu[];
+  dialog: boolean;
   user: IUser;
 }

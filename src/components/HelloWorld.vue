@@ -35,19 +35,23 @@
     </ul>
     123
     <user-list :usersList="usersList" />
-    <button @click="handelClickBtn">Click me!</button>
+    <v-btn color="green" @click="handelClickBtn">Click me!</v-btn>
     <v-btn color="blue" @click="handelClickLogin">登录</v-btn>
+    <v-btn color="primary" @click="handelClickBtnFromDialog">Open Dialog</v-btn>
+    <app-dialog :dialogConfig="{ width: 400, persistent: true, title: 'My Dialog' }" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import UserList from './UserList.vue';
+import AppDialog from './AppDialog.vue';
 import userApi from '@/api/user';
 @Component({
   name: 'HelloWorld',
   components: {
-    'user-list': UserList
+    'user-list': UserList,
+    'app-dialog': AppDialog
   }
 })
 export default class HelloWorld extends Vue {
@@ -80,10 +84,13 @@ export default class HelloWorld extends Vue {
       return res;
     });
   }
+
+  handelClickBtnFromDialog() {
+    this.$store.commit('SET_DIALOG', true);
+  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
