@@ -2,9 +2,12 @@
   <div class="test">
     <user-list :usersList="usersList" />
     <v-btn color="green" @click="handelClickBtn">Click me!</v-btn>
-    <v-btn color="blue" @click="handelClickLogin">登录</v-btn>
+    <v-btn color="blue" @click="handelClickLogin">Login</v-btn>
     <v-btn color="primary" @click="handelClickFromDialog">Open Dialog</v-btn>
     <v-btn color="primary" @click="handelClickChildrenRouter">Children Router</v-btn>
+    <p>{{ $t('holle.i18n') }}</p>
+    <p v-text="$t('holle.i18n')"></p>
+    <p v-html="$t('holle.i18n.html')"></p>
     <app-dialog :dialogConfig="{ width: 400, persistent: true, title: 'My Dialog' }" />
     <router-view />
   </div>

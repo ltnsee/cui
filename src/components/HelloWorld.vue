@@ -36,7 +36,7 @@
     123
     <user-list :usersList="usersList" />
     <v-btn color="green" @click="handelClickBtn">Click me!</v-btn>
-    <v-btn color="blue" @click="handelClickLogin">登录</v-btn>
+    <v-btn color="blue" @click="handelClickLogin">Login</v-btn>
     <v-btn color="primary" @click="handelClickBtnFromDialog">Open Dialog</v-btn>
     <app-dialog :dialogConfig="{ width: 400, persistent: true, title: 'My Dialog' }" />
   </div>

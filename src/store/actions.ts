@@ -6,6 +6,9 @@ const actions: ActionTree<IState, any> = {
   SET_AUTHOR_ASYN({ commit }, author: string) {
     commit('SET_AUTHOR', author);
   },
+  SET_LOCALE_ASYN({ commit }, locale: string) {
+    commit('SET_LOCALE', locale);
+  },
   SET_DIALOG_ASYN({ commit }, dialog: string) {
     commit('SET_DIALOG', dialog);
   }

@@ -12,6 +12,9 @@
       <v-spacer></v-spacer>
 
       <template v-if="$vuetify.breakpoint.smAndUp">
+        <div style="width: 80px;margin-top: 24px;">
+          <v-autocomplete v-model="$store.state.locale" :items="$store.state.localeItems" label="Locale" @change="handelClickLocale" item-text="lang" item-value="locale"></v-autocomplete>
+        </div>
         <v-btn icon>
           <v-icon>mdi-export-variant</v-icon>
         </v-btn>
@@ -36,10 +39,13 @@ import userApi from '@/api/user';
     'user-list': UserList
   }
 })
-export default class HelloWorld extends Vue {}
+export default class HelloWorld extends Vue {
+  handelClickLocale(item: any) {
+    this.$i18n.locale = this.$store.state.locale;
+  }
+}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .nav-bar {
   position: fixed;

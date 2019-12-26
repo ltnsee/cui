@@ -6,6 +6,9 @@ const mutations: MutationTree<IState> = {
   SET_AUTHOR(state: IState, author: string) {
     state.author = author;
   },
+  SET_LOCALE(state: IState, locale: string) {
+    state.locale = locale;
+  },
   SET_DIALOG(state: IState, dialog: boolean) {
     state.dialog = dialog;
   }

@@ -8,9 +8,15 @@ export interface IMenu {
   subMenus?: IMenu[];
   roles?: any[] | Function;
 }
+export interface ILocaleItems {
+  lang: string;
+  locale: string;
+}
 export interface IState {
   author: string;
   menu: IMenu[];
+  localeItems: ILocaleItems[];
+  locale: string;
   dialog: boolean;
   user: IUser;
 }
