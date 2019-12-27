@@ -53,7 +53,7 @@ export default class Test extends Vue {
   }
 
   handelClickFromDialog() {
-    this.$store.commit('SET_DIALOG', true);
+    this.$store.dispatch('SET_DIALOG_ASYN', true);
   }
 
   handelClickChildrenRouter() {

@@ -41,7 +41,7 @@ export default class AppDialog extends Vue {
   }
 
   handelClose() {
-    this.$store.commit('SET_DIALOG', false);
+    this.$store.dispatch('SET_DIALOG_ASYN', false);
   }
 }
 </script>

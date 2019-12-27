@@ -86,7 +86,7 @@ export default class HelloWorld extends Vue {
   }
 
   handelClickBtnFromDialog() {
-    this.$store.commit('SET_DIALOG', true);
+    this.$store.dispatch('SET_DIALOG_ASYN', true);
   }
 }
 </script>
