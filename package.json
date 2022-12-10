@@ -19,7 +19,7 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
     "nprogress": "^0.2.0",
-    "qs": "^6.9.1",
+    "qs": "^6.9.7",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vue-class-component": "^7.0.2",
